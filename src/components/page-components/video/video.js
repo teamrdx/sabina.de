@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Container } from "../../common/container";
 import Text from "../../common/text";
 import { FaPlayCircle } from "react-icons/fa";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { DATA } from "./data";
 
 const Content = styled.div`
@@ -82,7 +82,7 @@ const Gallery = () => {
 const Thumbnail = ({ src, url, title, alt }) => {
   return (
     <Box>
-      <StaticImage src={src} alt={alt} height="100%" />
+      <GatsbyImage src={src} alt={alt} height="100%" />
       <A href={url} target="_blank">
         <Icon>
           <FaPlayCircle size={150} />
