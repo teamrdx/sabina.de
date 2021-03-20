@@ -79,10 +79,10 @@ const Gallery = () => {
   );
 };
 
-const Thumbnail = ({ url, title, alt }) => {
+const Thumbnail = ({ src, url, title, alt }) => {
   return (
     <Box>
-      <StaticImage src="" alt={alt} height="100%" />
+      <StaticImage src={src} alt={alt} height="100%" />
       <A href={url} target="_blank">
         <Icon>
           <FaPlayCircle size={150} />
