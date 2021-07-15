@@ -7,7 +7,6 @@ import "@fontsource/open-sans/300.css";
 import "../../css/typography.css";
 import Footer from "./footer";
 
-
 const GlobalStyle = createGlobalStyle`
 ${normalize}
 :root {
@@ -27,10 +26,13 @@ ${normalize}
   background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
  color: var(--dark);
+
+ 
 }
 
 body, header, footer {
     font-family: "Open Sans", "Sign", serif;
+   
 }
 
 
@@ -47,6 +49,7 @@ const Container = styled.div`
 const Main = styled.main`
   width: 100%;
   flex: 1;
+  min-height: 90vh;
 `;
 
 const Layout = ({ children }) => {

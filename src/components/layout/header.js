@@ -1,35 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
-import { Sling as Hamburger, Sling } from "hamburger-react";
+import { Sling as Hamburger } from "hamburger-react";
+import { SiMessenger } from "react-icons/si";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 
 const Head = styled.header`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 0;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-`;
-
-const H3 = styled.h3`
-  font-family: "Sign";
-  font-size: 5rem;
-  margin-left: 5rem;
-  display: inline;
-  font-weight: 300;
-  color: var(--dark);
-  &:hover {
-    color: var(--pink-dark);
-  }
+  width: 100%;
 `;
 
 const Nav = styled.nav`
-  width: 40%;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+`;
+
+const PlusMinusIcon = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ExternalLink = styled.a`
+  text-decoration: none;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const NavLink = styled(Link)`
@@ -44,29 +45,137 @@ export const NavLink = styled(Link)`
   }
 `;
 
+const MobileMenu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  @media (min-width: 769px) {
+    display: none;
+  } ;
+`;
+
+const DesktopMenu = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  } ;
+`;
+
+const MobileMenuList = styled.div`
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  height: ${(props) => props.height};
+  width: 300px;
+  margin-inline: auto;
+  overflow: hidden;
+`;
+
+const MobileNestedNav = styled.div`
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  margin-left: 1.5rem;
+`;
+
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    isOpen && (document.body.style.overflow = "hidden");
+    !isOpen && (document.body.style.overflow = "unset");
+  }, [isOpen]);
+
   return (
     <Head>
-      <Hamburger
-        direction="left"
-        size={80}
-        duration={0.3}
-        easing="ease-in"
-        toggled={isOpen}
-        toggle={setOpen}
-        color="var(--white)"
-        style={{marginLeft: "1rem"}}
-      />
-      <NavLink to="/">
-        <H3>Sabina lama</H3>
-      </NavLink>
-      <Nav>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/germany">How to Germany</NavLink>
+      <MobileMenu>
+        <Hamburger
+          direction="left"
+          size={80}
+          duration={0.3}
+          easing="ease-in"
+          toggled={isOpen}
+          toggle={setOpen}
+          color="var(--white)"
+          style={{ marginLeft: "1rem" }}
+        />
+        <NavLink to="/" onClick={() => setOpen(false)}>
+          <StaticImage
+            src="../../images/logo-sabina.png"
+            alt="sabina lama logo"
+            placeholder="blurred"
+            width={150}
+            quality={100}
+          />
+        </NavLink>
+        <ExternalLink
+          href="https://m.me/sabinalama21"
+          rel="nofollow"
+          target="_blank"
+          onClick={() => setOpen(false)}
+        >
+          <SiMessenger size={45} />
+          <p style={{ margin: "0.6rem 0" }}>
+            Chat<sup> live</sup>
+          </p>
+        </ExternalLink>
+      </MobileMenu>
+      <MobileMenuList height={isOpen ? "100vh" : "0px"}>
+        <NavLink to="/about" style={{ marginTop: "3rem" }}>
+          About
+        </NavLink>
+        <div>
+          <PlusMinusIcon onClick={() => setShow(!show)}>
+            <NavLink to="/germany">How to Germany</NavLink>
+            {show ? (
+              <AiOutlineMinusCircle size={27} color="white" />
+            ) : (
+              <AiOutlinePlusCircle size={27} color="white" />
+            )}
+          </PlusMinusIcon>
+          {show && (
+            <MobileNestedNav>
+              <NavLink to="/aupair">Aupair</NavLink>
+              <NavLink to="/fsj">FSJ/BFD</NavLink>
+              <NavLink to="/ausbildung">Ausbildung</NavLink>
+              <NavLink to="/nursing">Nursing</NavLink>
+            </MobileNestedNav>
+          )}
+        </div>
         <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
         <NavLink to="/video">Video</NavLink>
-      </Nav>
+        <NavLink to="/faq">Faq</NavLink>
+      </MobileMenuList>
+      <DesktopMenu>
+        <Nav>
+          <NavLink to="/">
+            <StaticImage
+              src="../../images/logo-sabina.png"
+              alt="sabina lama logo"
+              placeholder="blurred"
+              layout="fixed"
+              width={150}
+              quality={90}
+            />
+          </NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/germany">How to Germany</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/blog">Blog</NavLink>
+          <NavLink to="/video">Video</NavLink>
+          <NavLink to="/faq">Faq</NavLink>
+        </Nav>
+      </DesktopMenu>
     </Head>
   );
 };

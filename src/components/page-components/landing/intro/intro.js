@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { PrimaryBtn } from "../../../common/button";
 import { Content, Container, NavLink } from "../../../common/container";
 
-
 const Img = styled.div`
   width: 50%;
   display: flex;
@@ -22,6 +21,10 @@ const TextBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 1008px) {
+    padding: 1.2rem 0;
+    width: 100%;
+  } ;
 `;
 
 const Intro = () => {
@@ -32,7 +35,9 @@ const Intro = () => {
           <StaticImage
             src="../../../../images/sabina.png"
             alt="sabina"
-            height="100%"
+            placeholder="blurred"
+            layout="constrained"
+            width={450}
           />
         </Img>
         <TextBox>
@@ -41,14 +46,15 @@ const Intro = () => {
             color="var(--dark)"
             fontSize="5rem"
             textTransform="uppercase"
+            MobfontSize="3rem"
+            XsfontSize="2rem"
           >
             Sabina Lama
           </Text>
-          <Text as="p" color="var(--white)" letterSpacing="3px">
+          <Text as="p" color="var(--white)" letterSpacing="3px" MobletterSpacing="0" XsfontSize=".9rem">
             Proud Nurse | Helping Nurses Succeed
           </Text>
           <NavLink to="/about">
-            {" "}
             <PrimaryBtn hover="white">About me</PrimaryBtn>{" "}
           </NavLink>
         </TextBox>

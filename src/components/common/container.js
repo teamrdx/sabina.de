@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 
 export const Container = styled.div`
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
 `;
 
 export const Content = styled.div`
@@ -25,7 +27,7 @@ export const NavLink = styled(Link)`
 export const Holder = styled.div`
   width: 50%;
   padding: 2rem;
-  @media (max-width: 70rem){
+  @media (max-width: 70rem) {
     width: 100%;
     padding: 0;
   }

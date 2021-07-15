@@ -10,17 +10,14 @@ const Content = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: auto;
   grid-gap: 3rem;
-  @media (max-width: 70rem) {
-    grid-template-columns: 1fr;
-    margin: 0 auto;
-  }
 `;
 
 const Box = styled.div`
   height: 27rem;
-  width: 21rem;
+  width: 270px;
   position: relative;
   border-radius: 5px;
   background: var(--gray-dark);
@@ -82,7 +79,7 @@ const Gallery = () => {
 const Thumbnail = ({ src, url, title, alt }) => {
   return (
     <Box>
-      <GatsbyImage src={src} alt={alt} height="100%" />
+      <GatsbyImage src={src} alt={alt} height={100} />
       <A href={url} target="_blank">
         <Icon>
           <FaPlayCircle size={150} />

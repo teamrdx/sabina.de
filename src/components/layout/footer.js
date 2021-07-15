@@ -26,7 +26,7 @@ const Foot = styled.footer`
   justify-content: center;
   align-items: center;
   width: 100%;
- 
+  margin-top: auto;
 `;
 const Social = styled.div`
   display: flex;
@@ -43,7 +43,7 @@ const A = styled.a`
   color: black;
   margin: 0 0.8rem;
   &:hover {
-    color:#34d9d9;
+    color: #34d9d9;
   }
 `;
 export const NavLink = styled(Link)`

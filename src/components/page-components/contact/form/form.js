@@ -60,52 +60,67 @@ const Button = styled(Input)`
 `;
 
 const Form = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data) => console.log(data);
 
   return (
     <Container>
       <Content>
         <Holder>
-          <Text as="h1" textAlign="center" margin="2rem">Drop me your queries</Text>
+          <Text as="h1" textAlign="center" margin="2rem">
+            Drop me your queries
+          </Text>
         </Holder>
         <Holder>
           <FormItem onSubmit={handleSubmit(onSubmit)}>
             <Fieldset>
               <Legend>Your information</Legend>
-              <label htmlFor="username">Your Name:</label>
-              <Input
-                type="text"
-                name="name"
-                placeholder="John Doe"
-                ref={register}
-              />
-              <label htmlFor="email">Email: </label>
-              <Input
-                type="email"
-                name="email"
-                placeholder="email@email.com"
-                ref={register({ required: true })}
-              />
-              {errors.email && (
-                <p style={{ marginTop: "0.1rem", color: "red" }}>
-                  {" "}
-                  * This is required
-                </p>
-              )}
-              <label htmlFor="message">Your Message:</label>
-              <Textarea
-                type="text"
-                name="message"
-                placeholder="Message"
-                ref={register({ required: true })}
-              />
-              {errors.message && (
-                <p style={{ marginTop: "0.1rem", color: "red" }}>
-                  {" "}
-                  * This is required
-                </p>
-              )}
+              <label htmlFor="username">
+                Your Name:
+                <Input
+                  type="text"
+                  {...register("name", { required: true })}
+                  placeholder="Sabina Lama"
+                />
+                {errors.name && (
+                  <p style={{ marginTop: "0.1rem", color: "red" }}>
+                    {" "}
+                    * This is required
+                  </p>
+                )}
+              </label>
+              <label htmlFor="email">
+                Email:
+                <Input
+                  type="email"
+                  placeholder="myEmail@email.com"
+                  {...register("email", { required: true })}
+                />
+                {errors.email && (
+                  <p style={{ marginTop: "0.1rem", color: "red" }}>
+                    {" "}
+                    * This is required
+                  </p>
+                )}
+              </label>
+              <label htmlFor="message">
+                Your Message:
+                <Textarea
+                  type="text"
+                  placeholder="Message"
+                  {...register("message", { required: true })}
+                />
+                {errors.message && (
+                  <p style={{ marginTop: "0.1rem", color: "red" }}>
+                    {" "}
+                    * This is required
+                  </p>
+                )}
+              </label>
               <Button type="submit" />
             </Fieldset>
           </FormItem>
