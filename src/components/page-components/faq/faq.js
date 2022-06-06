@@ -1,14 +1,14 @@
 import React from "react";
-import { Container, Content, Holder, NavLink } from "../../../common/container";
-import Text from "../../../common/text";
+import { Container, Content, Holder } from "../../common/container";
+import Text from "../../common/text";
 
-const NursingGermanyIntro = () => {
+const FAQs = () => {
   return (
     <Container>
       <Content>
         <Holder style={{ width: "80%" }}>
           <Text as="h1" margin="2rem auto" color="var(--dark)">
-            Nursing opportunity in Germany
+            Frequently asked question (FAQs)
           </Text>
           <Text as="p" margin="1rem auto" color="var(--white)">
             This page is in under construction. Please visit us later.
@@ -24,18 +24,9 @@ const NursingGermanyIntro = () => {
             fugiat mollit mollit eiusmod aliquip ullamco ea.
           </Text> */}
         </Holder>
-        {/* <Holder style={{ width: "20%" }}>
-          <fieldset style={{ maxWidth: "150px" }}>
-            <legend>Useful Links</legend>
-            <NavLink to="/aupair">Aupair</NavLink> <br />
-            <NavLink to="/fsj">FSJ/BFD</NavLink> <br />
-            <NavLink to="/ausbildung">Ausbildung</NavLink> <br />
-            <NavLink to="/nursing">Nursing</NavLink>
-          </fieldset>
-        </Holder> */}
       </Content>
     </Container>
   );
 };
 
-export default NursingGermanyIntro;
+export default FAQs;

@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { useStaticQuery, graphql } from "gatsby";
 import { Container } from "../../common/container";
 import Text from "../../common/text";
 import { FaPlayCircle } from "react-icons/fa";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { DATA } from "./data";
 
 const Content = styled.div`
   max-width: 1400px;
@@ -57,18 +57,32 @@ const A = styled.a`
 `;
 
 const Gallery = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allYoutubeVideo {
+        edges {
+          node {
+            title
+            videoId
+            publishedAt
+          }
+        }
+      }
+    }
+  `);
+  console.log(data.allYoutubeVideo.edges[0]);
   return (
     <Container>
       <Text as="h1" color="var(--dark)" textAlign="center" margin="3rem auto">
         My videos
       </Text>
       <Content>
-        {DATA.map((item, index) => (
+        {data.allYoutubeVideo.edges.map((item) => (
           <Thumbnail
-            key={index}
-            url={item.url}
+            key={item.videoId}
+            url={`https://youtube.com/watch?v=${item.videoId}`}
             title={item.title}
-            alt={item.alt}
+            alt={item.title}
           />
         ))}
       </Content>

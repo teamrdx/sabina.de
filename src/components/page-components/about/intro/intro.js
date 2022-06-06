@@ -1,11 +1,7 @@
 import React from "react";
-import styled from "styled-components";
-import { Container, Content } from "../../../common/container";
-import Text from "../../../common/text";
 
-const StyledContent = styled(Content)`
-    flex-direction: column;
-`;
+import { Container } from "../../../common/container";
+import Text from "../../../common/text";
 
 const AboutMe = () => {
   return (
@@ -20,12 +16,9 @@ const AboutMe = () => {
         margin="0 auto"
         fontSize="1.2rem"
       >
-        Sint cupidatat ipsum est cupidatat ullamco sint ut nulla dolore fugiat.
-        Ex est esse pariatur est deserunt ea voluptate adipisicing quis proident
-        minim. Duis minim amet sint aliqua reprehenderit tempor amet aliquip
-        nisi enim ullamco nulla excepteur. Eiusmod nostrud quis est aute nisi ea
-        ex. Lorem non nulla minim nostrud et aliquip aliqua ut quis ullamco
-        veniam.
+        I am a proud nurse, working as an intensive care nurse in a hospital in
+        Berlin. I have been living in Germany for 6 years. I am originally from
+        the beautiful Himalayas in Nepal.
       </Text>
 
       <Text
@@ -35,12 +28,10 @@ const AboutMe = () => {
         margin="1.2rem auto"
         fontSize="1.2rem"
       >
-        Sint cupidatat ipsum est cupidatat ullamco sint ut nulla dolore fugiat.
-        Ex est esse pariatur est deserunt ea voluptate adipisicing quis proident
-        minim. Duis minim amet sint aliqua reprehenderit tempor amet aliquip
-        nisi enim ullamco nulla excepteur. Eiusmod nostrud quis est aute nisi ea
-        ex. Lorem non nulla minim nostrud et aliquip aliqua ut quis ullamco
-        veniam.
+        I got my bachelor's degree in nursing in my birth country, Nepal. I
+        worked there for around one year in a hospital. After unsatisfactory
+        results in economic as well as work-life aspects of my life, I decided
+        for a foreign employment.
       </Text>
 
       <Text
@@ -50,12 +41,12 @@ const AboutMe = () => {
         margin="0 auto"
         fontSize="1.2rem"
       >
-        Sint cupidatat ipsum est cupidatat ullamco sint ut nulla dolore fugiat.
-        Ex est esse pariatur est deserunt ea voluptate adipisicing quis proident
-        minim. Duis minim amet sint aliqua reprehenderit tempor amet aliquip
-        nisi enim ullamco nulla excepteur. Eiusmod nostrud quis est aute nisi ea
-        ex. Lorem non nulla minim nostrud et aliquip aliqua ut quis ullamco
-        veniam.
+        Then I went to Germany for better employment opportunity. The process
+        was not easy, especially for me at those days as a foreigner in a
+        foreign country, to cope with German bureaucracy in order to register
+        myself and work as a German nurse. The time it took was also a lot. But
+        finally I am officially registered as a "Gesundheits- und
+        Krankenpflegerin".
       </Text>
     </Container>
   );

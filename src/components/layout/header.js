@@ -4,8 +4,8 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
 import { Sling as Hamburger } from "hamburger-react";
-import { SiMessenger } from "react-icons/si";
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+
+import BookNowButton from "../page-components/appointment/appointment";
 
 const Head = styled.header`
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
@@ -20,18 +20,22 @@ const Nav = styled.nav`
   align-items: center;
 `;
 
-const PlusMinusIcon = styled.div`
-  display: flex;
-  align-items: center;
-`;
+// const PlusMinusIcon = styled.div`
+//   display: flex;
+//   align-items: center;
+// `;
 
-const ExternalLink = styled.a`
-  text-decoration: none;
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+// const ExternalLink = styled.a`
+//   text-decoration: none;
+//   color: var(--white);
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   &:hover {
+//     color: green;
+//     transition: all 0.6s linear;
+//   }
+// `;
 
 export const NavLink = styled(Link)`
   text-decoration: none;
@@ -79,16 +83,15 @@ const MobileMenuList = styled.div`
   overflow: hidden;
 `;
 
-const MobileNestedNav = styled.div`
-  display: flex;
-  flex-direction: column;
-  line-height: 1.5;
-  margin-left: 1.5rem;
-`;
+// const MobileNestedNav = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   line-height: 1.5;
+//   margin-left: 1.5rem;
+// `;
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
-  const [show, setShow] = useState(false);
 
   useEffect(() => {
     isOpen && (document.body.style.overflow = "hidden");
@@ -117,23 +120,13 @@ const Header = () => {
             quality={100}
           />
         </NavLink>
-        <ExternalLink
-          href="https://m.me/sabinalama21"
-          rel="nofollow"
-          target="_blank"
-          onClick={() => setOpen(false)}
-        >
-          <SiMessenger size={45} />
-          <p style={{ margin: "0.6rem 0" }}>
-            Chat<sup> live</sup>
-          </p>
-        </ExternalLink>
+        <BookNowButton />
       </MobileMenu>
       <MobileMenuList height={isOpen ? "100vh" : "0px"}>
         <NavLink to="/about" style={{ marginTop: "3rem" }}>
           About
         </NavLink>
-        <div>
+        {/* <div>
           <PlusMinusIcon onClick={() => setShow(!show)}>
             <NavLink to="/germany">How to Germany</NavLink>
             {show ? (
@@ -150,11 +143,11 @@ const Header = () => {
               <NavLink to="/nursing">Nursing</NavLink>
             </MobileNestedNav>
           )}
-        </div>
+        </div> */}
+        <NavLink to="/nursing-in-germany">Nursing in Germany</NavLink>
         <NavLink to="/contact">Contact</NavLink>
-        <NavLink to="/blog">Blog</NavLink>
         <NavLink to="/video">Video</NavLink>
-        <NavLink to="/faq">Faq</NavLink>
+        <NavLink to="/faq">FAQs</NavLink>
       </MobileMenuList>
       <DesktopMenu>
         <Nav>
@@ -169,11 +162,11 @@ const Header = () => {
             />
           </NavLink>
           <NavLink to="/about">About</NavLink>
-          <NavLink to="/germany">How to Germany</NavLink>
+          <NavLink to="/nursing-in-germany">Nursing in Germany</NavLink>
           <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
           <NavLink to="/video">Video</NavLink>
-          <NavLink to="/faq">Faq</NavLink>
+          <NavLink to="/faq">FAQs</NavLink>
+          <BookNowButton />
         </Nav>
       </DesktopMenu>
     </Head>

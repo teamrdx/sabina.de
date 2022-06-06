@@ -27,7 +27,7 @@ export const NavLink = styled(Link)`
 export const Holder = styled.div`
   width: 50%;
   padding: 2rem;
-  @media (max-width: 70rem) {
+  @media (max-width: 36rem) {
     width: 100%;
     padding: 0;
   }

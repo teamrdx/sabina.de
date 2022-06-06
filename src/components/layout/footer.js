@@ -2,21 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { ImYoutube2 } from "react-icons/im";
 import { AiOutlineInstagram } from "react-icons/ai";
-import { SiTiktok } from "react-icons/si";
+import { SiTiktok, SiGooglecalendar } from "react-icons/si";
 import { Link } from "gatsby";
 
 const LINKS = [
   {
     link: "https://www.youtube.com/channel/UC1pjc7hSw7qWuHj_hng3CxQ",
-    icon: <ImYoutube2 size={70} />,
+    icon: <ImYoutube2 size={51} />,
   },
   {
     link: "https://www.instagram.com/i_sabina_lama/",
-    icon: <AiOutlineInstagram size={50} />,
+    icon: <AiOutlineInstagram size={30} />,
   },
   {
     link: "https://www.tiktok.com/@sabinalama2710?",
-    icon: <SiTiktok size={50} />,
+    icon: <SiTiktok size={30} />,
+  },
+  {
+    link: "https://calendly.com/sabinalama",
+    icon: <SiGooglecalendar size={30} />,
   },
 ];
 
@@ -26,7 +30,7 @@ const Foot = styled.footer`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: auto;
+  margin-top: 3rem;
 `;
 const Social = styled.div`
   display: flex;
