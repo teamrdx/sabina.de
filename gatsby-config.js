@@ -1,6 +1,16 @@
 module.exports = {
+  flags: {
+    FUNCTIONS: true,
+  },
   siteMetadata: {
-    title: "sabinalama.de",
+    siteUrl: "https://www.sabinalama.de",
+    title: "Sabina Lama | Nursing consultant",
+    description: "Nursing in Germany",
+    author: "Sabina Lama",
+    keywords: [
+      "Nursing","Registration","Nepal"
+    ],
+  },
   },
   plugins: [
     "gatsby-plugin-styled-components",
