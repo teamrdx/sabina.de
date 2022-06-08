@@ -29,6 +29,7 @@
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-source-youtube-v3": "^3.0.2",
     "gatsby-transformer-sharp": "^3.0.0",
+    "gh": "^2.8.9",
     "hamburger-react": "^2.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
