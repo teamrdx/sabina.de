@@ -23,7 +23,7 @@ const Bio = () => {
         <div>
           <Text
             as="h2"
-            color="var(--dark)"
+            color="var(--white)"
             margin="3rem auto"
             textAlign="center"
           >
@@ -39,38 +39,20 @@ const Bio = () => {
             Helping you succeed is my main motto.
           </Text>
           <br />
-          <Text
-            as="p"
-            color="var(--white)"
-            padding="0"
-            fontSize="1.2rem"
-            maxWidth="600px"
-          >
+          <Text as="p" padding="0" fontSize="1.2rem" maxWidth="600px">
             After opening my YouTube channel, a lot of nurses as well as
             students have contacted me frequently to get help from me. I have
             created over 50 videos in my channel to help you understand
             everything related to nursing in Germany.
           </Text>
           <br />
-          <Text
-            as="p"
-            color="var(--white)"
-            padding="0"
-            fontSize="1.2rem"
-            maxWidth="600px"
-          >
+          <Text as="p" padding="0" fontSize="1.2rem" maxWidth="600px">
             I have struggled a lot while finding the best ways to get registered
             and work as a registered nurse in Germany, and I don't want you to
             struggle with those complicated process.
           </Text>
           <br />
-          <Text
-            as="p"
-            color="var(--white)"
-            padding="0"
-            fontSize="1.2rem"
-            maxWidth="600px"
-          >
+          <Text as="p" padding="0" fontSize="1.2rem" maxWidth="600px">
             Everyone is different by itself and have different problems to
             solve. I want to help you all, but because of limited time, I can
             only help who comes to me through booking an appointment. First come
@@ -80,7 +62,7 @@ const Bio = () => {
           <BookNowButton />
           <Text
             as="p"
-            color="var(--pink-dark)"
+            color="var(--white)"
             padding="0"
             fontSize="1.2rem"
             maxWidth="600px"

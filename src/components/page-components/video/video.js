@@ -29,11 +29,15 @@ const TextBox = styled.div`
   width: 100%;
   background: var(--dark);
   opacity: 0.4;
-  height: 5rem;
+  height: 9rem;
   width: 100%;
   bottom: 0;
   border-radius: 0 0 5px 5px;
   margin-top: 2rem;
+  padding: 0.9rem;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
 `;
 
 const Icon = styled.div`
@@ -65,12 +69,15 @@ const Gallery = () => {
             title
             videoId
             publishedAt
+            thumbnail {
+              url
+            }
           }
         }
       }
     }
   `);
-  console.log(data.allYoutubeVideo.edges[0]);
+  const imageUrl = data.allYoutubeVideo.edges[0].node.thumbnail.url;
   return (
     <Container>
       <Text as="h1" color="var(--dark)" textAlign="center" margin="3rem auto">
@@ -79,10 +86,11 @@ const Gallery = () => {
       <Content>
         {data.allYoutubeVideo.edges.map((item) => (
           <Thumbnail
-            key={item.videoId}
-            url={`https://youtube.com/watch?v=${item.videoId}`}
-            title={item.title}
-            alt={item.title}
+            key={item.node.videoId}
+            url={`https://youtube.com/watch?v=${item.node.videoId}`}
+            title={item.node.title}
+            alt={item.node.title}
+            src={imageUrl}
           />
         ))}
       </Content>
