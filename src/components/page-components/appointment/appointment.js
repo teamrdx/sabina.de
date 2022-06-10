@@ -30,7 +30,7 @@ const BookNowSup = styled.sup`
 const BookNowButton = () => {
   return (
     <ExternalLink
-      href="https://calendly.com/sabinalama"
+      href="https://calendly.com/sabinalama/information-regarding-nursing-in-germany"
       rel="nofollow"
       target="_blank"
     >
